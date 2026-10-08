@@ -28,7 +28,14 @@ jobs:
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+syft:
+    name: Syft SBOM GENERATION
+    runs-on: ubuntu-latest
+   uses: anchore/sbom-action@v0
+        with:
+          path: .
+          format: cyclonedx
+          output: sbom.json
 
   # ==========================================
   # 2. TRIVY - FILESYSTEM + SBOM
