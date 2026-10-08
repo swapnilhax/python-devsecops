@@ -31,7 +31,7 @@ jobs:
 syft:
     name: Syft SBOM GENERATION
     runs-on: ubuntu-latest
-        steps:
+    steps:
           - name: sbom generation
             uses: anchore/sbom-action@v0
             with:
