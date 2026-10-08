@@ -32,14 +32,14 @@ syft:
     name: Syft SBOM GENERATION
     runs-on: ubuntu-latest
         steps:
-            name: sbom generation
+          - name: sbom generation
             uses: anchore/sbom-action@v0
             with:
               path: .
               format: cyclonedx
               output: sbom.json
 
-             name: Syft SBOM Upload
+           - name: Syft SBOM Upload
              uses: actions/upload-artifact@v4
              with:
                 name: syft_sbom
