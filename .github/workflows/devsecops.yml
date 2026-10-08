@@ -31,15 +31,19 @@ jobs:
 syft:
     name: Syft SBOM GENERATION
     runs-on: ubuntu-latest
-    uses: anchore/sbom-action@v0
-        with:
-          path: .
-          format: cyclonedx
-          output: sbom.json
-    name: Syft SBOM Upload
-        with:
-            name: syft_sbom
-            path: sbom.json
+        steps:
+            name: sbom generation
+            uses: anchore/sbom-action@v0
+            with:
+              path: .
+              format: cyclonedx
+              output: sbom.json
+
+             name: Syft SBOM Upload
+             uses: actions/upload-artifact@v4
+             with:
+                name: syft_sbom
+                path: sbom.json
 
 
   # ==========================================
