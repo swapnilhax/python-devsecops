@@ -36,6 +36,11 @@ syft:
           path: .
           format: cyclonedx
           output: sbom.json
+    name: Syft SBOM Upload
+        with:
+            name: syft_sbom
+            path: sbom.json
+
 
   # ==========================================
   # 2. TRIVY - FILESYSTEM + SBOM
