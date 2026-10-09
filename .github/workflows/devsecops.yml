@@ -28,14 +28,14 @@ jobs:
           fetch-depth: 0
 
       - name: Install Gitleaks
-        run:
+        run:  |
           GITLEAKS_VERSION=8.28.0
           curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" -o gitleaks.tar.gz
           tar -xzf gitleaks.tar.gz gitleaks
           sudo install gitleaks /usr/local/bin/gitleaks
           gitleaks version
 
-       - name: Run Gitleaks
+      - name: Run Gitleaks
         run: gitleaks dir .
 
   # ==========================================
