@@ -29,11 +29,11 @@ jobs:
 
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
-        run:  |
-            gitleaks dir .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Run Gitleaks
+        run: gitleaks dir .
 
   # ==========================================
   # 2. TRIVY - FILESYSTEM SCAN
